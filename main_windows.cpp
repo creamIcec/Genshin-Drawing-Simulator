@@ -13,44 +13,44 @@ int main() {
 	int dian = 0, trial = 0, peach = 0;
 	bool baodi = 0;
 	srand((unsigned)time(NULL));
-	cout<<"µæÖ®Ç°ÊÇÐ¡±£µ×»¹ÊÇ´ó±£µ×? 1/true =Ð¡,0/false =´ó"<<endl;
+	cout<<"åž«ä¹‹å‰æ˜¯å°ä¿åº•è¿˜æ˜¯å¤§ä¿åº•? 1/true =å°,0/false =å¤§"<<endl;
 		while (1) {
 			cin >> baodi;
 			if (!cin >> baodi && baodi == 0) {
-				cout << "ÇëÊäÈë1/true»ò0/false" << endl;
+				cout << "è¯·è¾“å…¥1/trueæˆ–0/false" << endl;
 				dian = 0;
 				cin.sync();
 			} else {
 				break;
 			}
 		}
-	cout << "ÊäÈëÒÑµæ´ÎÊý:" << endl;
+	cout << "è¾“å…¥å·²åž«æ¬¡æ•°:" << endl;
 	while (1) {
 		cin >> dian;
 		if (!cin >> dian && dian == 0) {
-			cout << "ÇëÊäÈëÕýÕûÊý" << endl;
+			cout << "è¯·è¾“å…¥æ­£æ•´æ•°" << endl;
 			dian = 0;
 			cin.sync();
 		} else {
 			break;
 		}
 	}
-	cout << "ÊäÈë»¹Òª³éÈ¡µÄ´ÎÊý:" << endl;
+	cout << "è¾“å…¥è¿˜è¦æŠ½å–çš„æ¬¡æ•°:" << endl;
 	while (1) {
 		cin >> trial;
 		if (!cin >> trial && trial == 0) {
-			cout << "ÇëÊäÈëÕýÕûÊý" << endl;
+			cout << "è¯·è¾“å…¥æ­£æ•´æ•°" << endl;
 			trial = 0;
 			cin.sync();
 		} else {
 			break;
 		}
 	}
-	cout << "ÊäÈëÏëÖÐUPµÄ´ÎÊý:" << endl;
+	cout << "è¾“å…¥æƒ³ä¸­UPçš„æ¬¡æ•°:" << endl;
 	while (1) {
 		cin >> peach;
 		if (!cin >> peach && peach == 0) {
-			cout << "ÇëÊäÈëÕýÕûÊý" << endl;
+			cout << "è¯·è¾“å…¥æ­£æ•´æ•°" << endl;
 			peach = 0;
 			cin.sync();
 		} else {
@@ -83,12 +83,12 @@ int main() {
 		if (favor >= peach) {
 			sum++;
 		}
-		//cout << "³éÖÐ´ÎÊý£º" << favor << endl;
+		//cout << "æŠ½ä¸­æ¬¡æ•°ï¼š" << favor << endl;
 		total = total + favor;
 	}
 	long double percent = 1.0 * (sum / 1000);
-	cout << "³éÖÐ" << peach << "´ÎÒÔÉÏ´ÎÊý:" << sum << ",¸ÅÂÊ:" << percent << "%" << endl;
-	cout << "×Ü´ÎÊý:" << total << endl;
+	cout << "æŠ½ä¸­" << peach << "æ¬¡ä»¥ä¸Šæ¬¡æ•°:" << sum << ",æ¦‚çŽ‡:" << percent << "%" << endl;
+	cout << "æ€»æ¬¡æ•°:" << total << endl;
 	system("pause");
 	return 0;
 }
