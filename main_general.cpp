@@ -12,7 +12,7 @@ int main() {
 	int sum = 0;
 	int dian = 0, trial = 0, peach = 0;
 	bool baodi = 0;
-	char temp[10];
+	//char temp[10];
 	srand((unsigned)time(NULL));
 	cout<<"垫之前是小保底还是大保底? 1/true =小,0/false =大"<<endl;
 		while (1) {
