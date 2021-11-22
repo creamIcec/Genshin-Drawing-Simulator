@@ -2,29 +2,12 @@
 #include <stdlib.h>
 #include <iomanip>
 #include <ctime>
+#include "drawing.h"
 
 //#define Randmod(x) rand()%x
 
 using namespace std;
-
-int guess(unsigned int s, bool st);
-template <typename T> getData(T target, bool type) {   //type: target的类型。0 = 布尔值(bool), 1 = unsigned int非负整型
-	while (1) {
-		cin >> target;
-		if (!cin) {
-			if (type == 0) {
-				cout << "请输入0或1" << endl;
-			} else {
-				cout << "请输入非负整数" << endl;
-			}
-			cin.clear();
-			cin.sync();
-		} else {
-			return target;
-		}
-	}
-	return 0;
-}
+using namespace draw;
 int main() {
 	int total = 0;
 	int sum = 0;
@@ -86,42 +69,4 @@ int main() {
 	cin.sync();
 	cin.get();
 	return 0;
-}
-int guess(unsigned int s, bool st) {
-	long long ra = (double)rand() / RAND_MAX * 1000;
-	//cout<<ra<<endl;
-	//cout<<s<<" "<<st<<endl;
-	if (s > 73) {
-		if (s == 90) {
-			if (st == true) {
-				return 2;
-			} else if (ra >= 1 && ra <= (500)) {
-				return 2;
-			} else {
-				return 1;
-			}
-		} else if (ra >= 1 && (ra <= (6 + (s - 73) * 60))) {
-			if (st == true) {
-				return 2;
-			} else if (ra >= 1 && ra <= ((6 + (s - 73) * 60) / 2)) {
-				return 2;
-			} else {
-				return 1;
-			}
-		} else {
-			return 3;
-		}
-	} else {
-		if (ra >= 1 && ra <= 6) {
-			if (st == true) {
-				return 2;
-			} else if (ra >= 1 && ra <= 3) {
-				return 2;
-			} else {
-				return 1;
-			}
-		} else {
-			return 3;
-		}
-	}
 }

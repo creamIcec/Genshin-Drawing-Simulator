@@ -3,16 +3,18 @@
 #include <ctime>
 #include <graphics.h>
 #include <iomanip>
+#include "drawing.h"
 
 using namespace std;
+using namespace draw;
 
-int guess(unsigned int s, bool st);
 int main() {
 	int total = 0;
 	int sum = 0;
 	unsigned int dian = 0, trial = 0, peach = 0;
 	bool baodi = 0;
 	int width = 720, height = 450; //绘图窗口长宽
+	bool output = false; //数值对显示状态
 	double percent = 0;
 	srand((unsigned)time(NULL));
 	cout.setf(ios::fixed);
@@ -21,16 +23,11 @@ int main() {
 	setbkcolor(WHITE);
 	setcolor(RED);
 	cout << "输入想中UP的次数:" << endl;
-	while (1) {
-		cin >> peach;
-		if (!cin) {
-			cout << "请输入正整数" << endl;
-			cin.clear();
-			cin.sync();
-		} else {
-			break;
-		}
-	}
+	peach = getData<int>(peach, 1);
+	cin.sync();
+	cout << "是否显示数值对?" << endl;
+	output = getData<bool>(output, 0);
+	cin.sync();
 	for (trial = 1; trial <= 180; trial++) {
 		for (long times = 0; times < 100000; times++) {
 			int favor = 0;
@@ -60,8 +57,10 @@ int main() {
 		}
 		percent = sum / 1000.0;
 		//cout << total << endl;
-		cout << fixed << setprecision(5) << trial << " " << percent / 100.0 << endl;
-		circle(trial * width / 180, (height - (percent/100.0 * height)), 3);
+		if (output == true) {
+			cout << fixed << setprecision(5) << trial << " " << percent / 100.0 << endl;
+		}
+		circle(trial * width / 180, (height - (percent / 100.0 * height)), 3);
 		delay_ms(0);
 		sum = 0;
 		total = 0;
@@ -70,42 +69,4 @@ int main() {
 	cin.get();
 	cin.get();
 	return 0;
-}
-int guess(unsigned int s, bool st) {
-	long long ra = (double)rand() / RAND_MAX * 1000;
-	//cout<<ra<<endl;
-	//cout<<s<<" "<<st<<endl;
-	if (s > 73) {
-		if (s == 90) {
-			if (st == true) {
-				return 2;
-			} else if (ra >= 1 && ra <= (500)) {
-				return 2;
-			} else {
-				return 1;
-			}
-		} else if (ra >= 1 && (ra <= (6 + (s - 73) * 60))) {
-			if (st == true) {
-				return 2;
-			} else if (ra >= 1 && ra <= ((6 + (s - 73) * 60) / 2)) {
-				return 2;
-			} else {
-				return 1;
-			}
-		} else {
-			return 3;
-		}
-	} else {
-		if (ra >= 1 && ra <= 6) {
-			if (st == true) {
-				return 2;
-			} else if (ra >= 1 && ra <= 3) {
-				return 2;
-			} else {
-				return 1;
-			}
-		} else {
-			return 3;
-		}
-	}
 }
